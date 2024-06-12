@@ -1,0 +1,15 @@
+apiVersion: pipecd.dev/v1beta1
+kind: Piped
+spec:
+  projectID: stego-pipecd
+  pipedID: 00fa5554-9b44-4bc9-8f17-ffa7c086908e
+  pipedKeyFile: /etc/piped-secret/piped-key
+  # Write in a format like "host:443" because the communication is done via gRPC.
+  apiAddress: pipecd.ottotto.dev:443
+  git:
+    sshKeyFile: /etc/piped-secret/ssh-key
+  repositories:
+    - repoId: stego-ops
+      remote: git@github.com:yamato0211/stego-ops.git
+      branch: main
+  syncInterval: 1m
