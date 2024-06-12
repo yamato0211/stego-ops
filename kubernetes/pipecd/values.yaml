@@ -1,0 +1,21 @@
+quickstart:
+  enabled: false
+
+service:
+  port: 443
+  internalPort: 80
+
+ingress:
+  enabled: true
+  annotations: 
+    kubernetes.io/ingress.class: "gce"
+    kubernetes.io/ingress.global-static-ip-name: stego-pipecd-static-ip-prd
+    networking.gke.io/managed-certificates: pipecd
+
+managedCertificate:
+  enabled: true
+  domains: [pipecd.ottotto.dev]
+
+server:
+  args:
+    secureCookie: true

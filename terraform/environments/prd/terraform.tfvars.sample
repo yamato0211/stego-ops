@@ -1,0 +1,7 @@
+common = {
+  project     = "stego"
+  region      = "asia-notrtheast1"
+  zone        = "asia-northeast1-a"
+  prefix      = "stego"
+  environment = "prd"
+}
