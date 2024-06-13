@@ -3,5 +3,4 @@ firestore.json
 cloudstorage.json
 sshkey
 pipekey
-tls.key
-tls.crt
+slack-webhook-url

@@ -23,5 +23,5 @@ spec:
     receivers:
       - name: slack-channel
         slack:
-          hookURL: https://hooks.slack.com/services/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
-
+          # The Slack webhook URL to send notifications.
+          hookURL: ""
