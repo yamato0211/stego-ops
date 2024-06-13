@@ -4,7 +4,7 @@ spec:
   name: canary
   labels:
     env: prd
-    team: gateway
+    app: gateway
   pipeline:
     stages:
       # Deploy the workloads of CANARY variant. In this case, the number of
