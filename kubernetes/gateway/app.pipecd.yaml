@@ -3,8 +3,8 @@ kind: KubernetesApp
 spec:
   name: canary
   labels:
-    env: example
-    team: product
+    env: prd
+    team: gateway
   pipeline:
     stages:
       # Deploy the workloads of CANARY variant. In this case, the number of

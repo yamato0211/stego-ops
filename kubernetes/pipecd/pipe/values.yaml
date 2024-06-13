@@ -1,0 +1,27 @@
+apiVersion: pipecd.dev/v1beta1
+kind: Piped
+spec:
+  projectID: stego-pipecd
+  pipedID: f0f4dbfa-8441-4313-8096-0925c54af262
+  pipedKeyFile: /etc/piped-secret/piped-key
+  # Write in a format like "host:443" because the communication is done via gRPC.
+  apiAddress: pipecd:443
+  repositories:
+    - repoId: stego-ops
+      remote: https://github.com/yamato0211/stego-ops.git
+      branch: main
+  syncInterval: 1m
+  notifications:
+    routes:
+      - name: slack
+        events:
+          - DEPLOYMENT_FAILED
+          - DEPLOYMENT_SUCCEEDED
+        labels:
+          env: prd
+        receiver: slack-channel
+    receivers:
+      - name: slack-channel
+        slack:
+          hookURL: https://hooks.slack.com/services/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
+
