@@ -2,3 +2,4 @@
 .terraform
 .terraform.lock.hcl
 stego-kubeconfig-prd
+gke_gcloud_auth_plugin_cache

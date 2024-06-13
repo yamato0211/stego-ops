@@ -25,3 +25,6 @@ spec:
         slack:
           # The Slack webhook URL to send notifications.
           hookURL: ""
+  eventWatcher:
+    gitRepos:
+      - repoId: stego-ops
