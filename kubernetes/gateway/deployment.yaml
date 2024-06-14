@@ -40,7 +40,7 @@ spec:
             secretKeyRef:
               name: gke-cloud-sql-secrets
               key: username
-        - name: DB_PASS
+        - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
               name: gke-cloud-sql-secrets
