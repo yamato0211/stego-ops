@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: gateway
-        image: asia-northeast1-docker.pkg.dev/stego-426014/stego-docker-prd/api@sha256:709b6e463915816879035922f6b6c12ad62f4efed28ffaf381ad1a97176bd12d
+        image: asia-northeast1-docker.pkg.dev/stego-426014/stego-docker-prd/api:0.1
         ports:
         - containerPort: 8080
           protocol: TCP
