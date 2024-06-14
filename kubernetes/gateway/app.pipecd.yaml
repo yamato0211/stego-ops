@@ -1,7 +1,7 @@
 apiVersion: pipecd.dev/v1beta1
 kind: KubernetesApp
 spec:
-  name: canary
+  name: gateway-deployment
   labels:
     env: prd
     app: gateway
@@ -18,16 +18,6 @@ spec:
       - name: K8S_PRIMARY_ROLLOUT
       # Destroy all workloads of CANARY variant.
       - name: K8S_CANARY_CLEAN
-  eventWatcher:
-    - matcher:
-        name: gateway-image-update
-      handler:
-        type: GIT_UPDATE
-        config:
-          makePullRequest: true
-          replacements:
-            - file: deployment.yaml
-              yamlField: $.spec.template.spec.containers[0].image
   description: |
     This app demonstrates how to deploy a Kubernetes app by Canary strategy without requering any mesh.\
     References: [adding a new app](https://pipecd.dev/docs/user-guide/managing-application/adding-an-application/), [app configuration](https://pipecd.dev/docs/user-guide/configuration-reference/)

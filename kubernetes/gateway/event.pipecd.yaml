@@ -1,0 +1,13 @@
+apiVersion: pipecd.dev/v1beta1
+kind: KubernetesApp
+spec:
+  name: gateway-event
+  eventWatcher:
+    - matcher:
+        name: gateway-image-update
+      handler:
+        type: GIT_UPDATE
+        config:
+          replacements:
+            - file: deployment.yaml
+              yamlField: $.spec.template.spec.containers[0].image
