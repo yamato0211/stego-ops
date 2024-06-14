@@ -1,10 +1,10 @@
 apiVersion: pipecd.dev/v1beta1
 kind: KubernetesApp
 spec:
-  name: gateway-deployment
+  name: api-deployment
   labels:
     env: prd
-    app: gateway
+    app: api
   pipeline:
     stages:
       # Deploy the workloads of CANARY variant. In this case, the number of
