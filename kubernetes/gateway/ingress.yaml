@@ -5,8 +5,8 @@ metadata:
   namespace: default
   annotations:
     kubernetes.io/ingress.allow-http: "false"
-    kubernetes.io/ingress.global-static-ip-name: stego-gateway-static-ip-prd
-    networking.gke.io/managed-certificates: gateway-managed-cert
+    kubernetes.io/ingress.global-static-ip-name: stego-api-static-ip-prd
+    networking.gke.io/managed-certificates: api-managed-cert
     kubernetes.io/ingress.class: "gce"
 spec:
   defaultBackend:

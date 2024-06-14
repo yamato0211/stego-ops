@@ -3,12 +3,12 @@ resource "google_dns_managed_zone" "zone" {
   dns_name = "${var.dns.domain}."
 }
 
-resource "google_dns_record_set" "plesio" {
-  name         = "gateway.${var.dns.domain}."
+resource "google_dns_record_set" "api" {
+  name         = "api.${var.dns.domain}."
   type         = "A"
   ttl          = 300
   managed_zone = google_dns_managed_zone.zone.name
-  rrdatas      = [google_compute_global_address.gateway_static_ip.address]
+  rrdatas      = [google_compute_global_address.api_static_ip.address]
 }
 
 resource "google_dns_record_set" "pipecd" {
