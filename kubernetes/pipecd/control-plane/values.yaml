@@ -8,6 +8,7 @@ service:
 ingress:
   enabled: true
   annotations: 
+    kubernetes.io/ingress.allow-http: "false"
     kubernetes.io/ingress.class: "gce"
     kubernetes.io/ingress.global-static-ip-name: stego-pipecd-static-ip-prd
     networking.gke.io/managed-certificates: pipecd

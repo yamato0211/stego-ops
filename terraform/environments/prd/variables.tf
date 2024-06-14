@@ -28,3 +28,11 @@ variable "dns" {
     domain = string
   })
 }
+
+variable "sql" {
+  type = object({
+    database = string
+    password = string
+    user     = string
+  })
+}
