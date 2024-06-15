@@ -1,0 +1,1 @@
+ALTER TABLE rooms ADD owner_id  VARCHAR(255) NOT NULL;
