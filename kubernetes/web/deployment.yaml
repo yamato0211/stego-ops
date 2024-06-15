@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: web
+          image: us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.0
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+            - name: NEXT_PUBLIC_PROD_AUTH_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: gke-web-firebase-secrets
+                  key: auth-api-key
+            - name: NEXT_PUBLIC_DEV_AUTH_DOMAIN
+              valueFrom:
+                secretKeyRef:
+                  name: gke-web-firebase-secrets
+                  key: auth-domain
+            - name: NEXT_PUBLIC_PROD_API_BASE_URL
+              value: "https://api.ottotto.dev"
+            - name: NEXT_PUBLIC_PROD_WS_BASE_URL
+              value: "wss://api.ottotto.dev"
