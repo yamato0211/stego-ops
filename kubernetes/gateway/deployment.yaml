@@ -15,53 +15,52 @@ spec:
     spec:
       serviceAccountName: ksa-cloud-sql
       containers:
-      - name: api
-        image: asia-northeast1-docker.pkg.dev/stego-426014/stego-docker-prd/api@sha256:271a77071fcc484fcb9fd02dde3f48bad268023b68a2ec2462bb0f89eb5aa07d
-        ports:
-        - containerPort: 8080
-          protocol: TCP
-        env:
-        - name: PORT
-          value: "8080"
-        - name: FIREBASE_SERVICE_ACCOUNT
-          valueFrom:
-            secretKeyRef:
-              name: gke-firebase-secrets
-              key: firebase_secret
-        # This project uses environment variables to determine
-        # how you would like to run your application
-        # To use the Go Connector (recommended) - use INSTANCE_CONNECTION_NAME (proj:region:instance)
-        # To use TCP - Setting INSTANCE_HOST will use TCP (e.g., 127.0.0.1)
-        # To use Unix, use INSTANCE_UNIX_SOCKET (e.g., /cloudsql/proj:region:instance)
-        - name: DB_HOST
-          value: "localhost"
-        - name: DB_PORT
-          value: "3306"
-        # For Automatic IAM Authentication with the Go Connector
-        # use DB_IAM_USER instead of DB_USER (recommended)
-        # You may also remove the DB_PASS environment variable if
-        # you use Automatic IAM Authentication
-        - name: DB_USER
-          valueFrom:
-            secretKeyRef:
-              name: gke-cloud-sql-secrets
-              key: username
-        - name: DB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: gke-cloud-sql-secrets
-              key: password
-        - name: DB_NAME
-          valueFrom:
-            secretKeyRef:
-              name: gke-cloud-sql-secrets
-              key: database
-        - name: INSTANCE_CONNECTION_NAME
-          value: "stego-426014:asia-northeast1:stego-stego-prd"
-        - name: REDIS_HOST
-          value: "10.29.136.83"
-        - name: REDIS_PORT
-          value: "6379"
-        - name: ENV
-          value: "production"
-
+        - name: api
+          image: asia-northeast1-docker.pkg.dev/stego-426014/stego-docker-prd/api:ae3996daef69bdacb11e93d31ecaed9ea29055bb
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+            - name: PORT
+              value: "8080"
+            - name: FIREBASE_SERVICE_ACCOUNT
+              valueFrom:
+                secretKeyRef:
+                  name: gke-firebase-secrets
+                  key: firebase_secret
+            # This project uses environment variables to determine
+            # how you would like to run your application
+            # To use the Go Connector (recommended) - use INSTANCE_CONNECTION_NAME (proj:region:instance)
+            # To use TCP - Setting INSTANCE_HOST will use TCP (e.g., 127.0.0.1)
+            # To use Unix, use INSTANCE_UNIX_SOCKET (e.g., /cloudsql/proj:region:instance)
+            - name: DB_HOST
+              value: "localhost"
+            - name: DB_PORT
+              value: "3306"
+            # For Automatic IAM Authentication with the Go Connector
+            # use DB_IAM_USER instead of DB_USER (recommended)
+            # You may also remove the DB_PASS environment variable if
+            # you use Automatic IAM Authentication
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: gke-cloud-sql-secrets
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: gke-cloud-sql-secrets
+                  key: password
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: gke-cloud-sql-secrets
+                  key: database
+            - name: INSTANCE_CONNECTION_NAME
+              value: "stego-426014:asia-northeast1:stego-stego-prd"
+            - name: REDIS_HOST
+              value: "10.29.136.83"
+            - name: REDIS_PORT
+              value: "6379"
+            - name: ENV
+              value: "production"
