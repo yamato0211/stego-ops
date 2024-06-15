@@ -16,7 +16,7 @@ spec:
       serviceAccountName: ksa-cloud-sql
       containers:
         - name: timer
-          image: asia-northeast1-docker.pkg.dev/stego-426014/stego-docker-prd/timer:f5cb38a346260d0f1cd79f119fb70408acfb2442
+          image: asia-northeast1-docker.pkg.dev/stego-426014/stego-docker-prd/timer:5bbfdc78e511b930a4c1925987a29ff30af10d5c
           ports:
             - containerPort: 50000
               protocol: TCP
