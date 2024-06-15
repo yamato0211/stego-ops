@@ -1,1 +1,2 @@
 TRUNCATE TABLE rooms;
+TRUNCATE TABLE problems;
