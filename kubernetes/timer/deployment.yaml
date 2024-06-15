@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: timer
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: timer
+  template:
+    metadata:
+      labels:
+        app: timer
+    spec:
+      serviceAccountName: ksa-cloud-sql
+      containers:
+        - name: timer
+          image: us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.0
+          ports:
+            - containerPort: 50000
+              protocol: TCP
+
