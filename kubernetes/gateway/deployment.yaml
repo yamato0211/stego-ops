@@ -16,7 +16,7 @@ spec:
       serviceAccountName: ksa-cloud-sql
       containers:
         - name: api
-          image: asia-northeast1-docker.pkg.dev/stego-426014/stego-docker-prd/api:2e095905b6b28e0ce583383b2fc4c423fa98a891
+          image: asia-northeast1-docker.pkg.dev/stego-426014/stego-docker-prd/api:362ff84bc4a7c3f1782d39b4688ade3479afa9fc
           ports:
             - containerPort: 8080
               protocol: TCP
