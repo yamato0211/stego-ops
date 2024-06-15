@@ -11,6 +11,14 @@ migrate-down:
 gen-migrate:
 	migrate create -ext sql -dir ./migrations -seq $(name)
 
+# dev
+local-insert-test-data:
+	mysql -u$(USER) -p$(PASSWORD) -h127.0.0.1 $(DATABASE) < ./seeds/test_data.sql
+
+init:
+	mysql -u$(USER) -p$(PASSWORD) -h127.0.0.1 $(DATABASE) < ./seeds/cleanup.sql
+	mysql -u$(USER) -p$(PASSWORD) -h127.0.0.1 $(DATABASE) < ./seeds/test_data.sql
+
 # gcloud auth loginを実行ずみであること
 # gcloud set project PROJECT_IDを実行ずみであること
 setup-proxy:
