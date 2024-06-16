@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: asia-northeast1-docker.pkg.dev/stego-426014/stego-docker-prd/web:6fa8c92355c1264b89752abc6508456ad9f5ba0b
+          image: asia-northeast1-docker.pkg.dev/stego-426014/stego-docker-prd/web:e827fb370ff75c56633d9b114608f1340b0a0721
           ports:
             - containerPort: 8080
               protocol: TCP
